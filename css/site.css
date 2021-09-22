@@ -9,6 +9,15 @@ body{
     color:var(--dark-color);
 }
 
+.logoFont {
+    font-family: 'Racing Sans One', cursive;
+    
+}
+
+.roboFont {
+font-family: 'Roboto', sans-serif;
+}
+
 nav{
     background:var(--dark-color);
 }

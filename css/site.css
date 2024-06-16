@@ -5,6 +5,12 @@
     --white-color: #f6f2e7;
 }
 
+.logoFont {
+    font-family: uniwars, sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
 body{
     color: var(--dark-color);
 }

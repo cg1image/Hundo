@@ -24,8 +24,8 @@
     <!-- ==== Nav Section ==== -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logoFont" href="#"><img src="/img/WhiteCG-01.svg" class=" d-inline-block align-text-top me-3"
-                    width="30" height="24">Hundred</a>
+            <a class="navbar-brand logoFont" href="#"><img src="/img/WhiteCG-01.svg"
+                    class=" d-inline-block align-text-top me-3" width="30" height="24">Hundred</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,17 +59,88 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function helloWorld(){
-                            alert("Hello World");
-                            }
+                            //get the values from the page
+//==START FUNCTION-CONTROLLER==/ 
+function getValues() {
+    //get values from the page
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+
+    //We need to validate our input
+    //parse into Integers
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        //we call  generateNumbers
+        let numbers = generateNumbers(startValue, endValue);
+        //we call displayNumbers
+        displayNumbers(numbers);
+
+    } else {
+        alert("You must enter integers");
+    }
+
+
+}
+
+//generate numbers from startValue to the endValue
+//==LOGIC FUNCTION==/
+function generateNumbers(sValue, eValue) {
+
+    let numbers = [];
+
+    //we want to get all numbers from start to end
+    for (let i = sValue; i <= eValue; i++) {
+        //this will execute in a loop until i = eValue
+        numbers.push(i);
+
+    }
+
+    return numbers;
+}
+
+//display the numbers and mark even numbers bold
+//==VIEW FUNCTION==/
+function displayNumbers(numbers) {
+
+    let templateRows = "";
+
+    for (let i = 0; i < numbers.length; i++) {
+
+        let className = "even";
+
+        let number = numbers[i];
+
+        if (number % 2 == 0) {
+            className = "even";
+        }
+        else {
+            className = "odd";
+        }
+        //This does render correctly with Prisim see the source
+        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+    }
+
+    document.getElementById("results").innerHTML = templateRows;
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                    <p class="lead logoFontLight">This Code is structured using Javascript functions, loops, arrays, and
+                        template literals.</p><br>
+                    <h5>getValues function</h5>
+                    <p>Retrieves values from users input 0 to 100, validates and forces integer type input, using logic
+                        if-statement, and calling other functions.</p><br>
+                    <h5>generateNumbers function</h5>
+                    <p>Starting and ending values from user input is calculated using, Javascript loops, and arrays</p>
+                    <br>
+                    <h5>displayNumbers function</h5>
+                    <p>Gathers the selected numbers and displays the results to the page all even numbers in BOLD. This
+                        function uses Javascript loops, logic if-statement for even bold feature, template literals, and
+                        css. </p>
                 </div>
             </div>
         </div>

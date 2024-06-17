@@ -5,10 +5,20 @@
     --white-color: #f6f2e7;
 }
 
+.odd{
+    font-weight:100;
+}
+.even{
+    font-weight:bold;
+}
 .logoFont {
     font-family: uniwars, sans-serif;
     font-weight: 600;
     font-style: italic;
+}
+.logoFontLight{
+    font-family: uniwars, sans-serif;
+    font-weight:100;
 }
 
 body{
@@ -36,6 +46,11 @@ main>.container {
 
 h1,h2,h3,h4,h5,h6{
     color: var(--primary-color);
+}
+
+.label-color{
+    color:var(--primary-color);
+    font-weight:bolder;
 }
 
 footer{
